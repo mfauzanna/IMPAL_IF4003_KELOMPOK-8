@@ -65,7 +65,6 @@ class C_pemilik extends CI_Controller {
 				'alamat_lapangan' => $alamat,
 				'jenis_lapangan' => $jenis,
 				'deskripsi' => $deskripsi,
-				'status' => $status,
 				'id_pemilik' => $id_pemilik
 			);
 			$this->Main_Model->ins_lapangan($data_lapangan);
