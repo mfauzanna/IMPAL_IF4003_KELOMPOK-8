@@ -105,12 +105,12 @@
 				<div class="centered">
 					<p style="font-size : 20px">Cari Lapangan Futsal?</p>
 					<p style="font-size : 40px; font-weight : bold;">Cek di <span style="color : #49874B;">#</span>Futsal aja.</p>
-					<form method="post" action="<?php?>">
+					<form method="post" action="<?php echo site_url('Welcome/cari_tipe_lapangan');?>">
 					<input class="ip ip4" value="Bandung" readonly>
-					<select class="ip ip2" name="tipe_pencarian">
-						<option disabled selected>Tipe Lapangan</option>
-						<option value="">Lapangan Rumput Sintetis</option>
-						<option value="">Lapangan Vinyl</option>
+					<select class="ip ip2" name="tipe_pencarian" required>
+						<option disabled value="" selected>Tipe Lapangan</option>
+						<option value="Lapangan Matras">Lapangan Matras</option>
+						<option value="Lapangan Rumput">Lapangan Rumput</option>
 					</select>
 					
 					<input type="submit" value="Cari Sekarang" class="ip ip3">

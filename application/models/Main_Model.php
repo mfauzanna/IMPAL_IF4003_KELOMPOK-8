@@ -66,6 +66,34 @@
 			}
 		}
 		
+		public function read_data_lapangan_matras($tipe){
+			$condition= "jenis_lapangan =". "'".$tipe."'";
+			$this->db->select('*');
+			$this->db->from('lapangan');
+			$this->db->join('user_pemilik','user_pemilik.id_pemilik = lapangan.id_pemilik','inner');
+			$this->db->where($condition);
+			$query = $this->db->get();
+			if($query->num_rows() > 0){
+				return $query->result();
+			}else{
+				return false;
+			}
+		}
+		
+		public function read_data_lapangan_rumput($tipe){
+			$condition= "jenis_lapangan =". "'".$tipe."'";
+			$this->db->select('*');
+			$this->db->from('lapangan');
+			$this->db->join('user_pemilik','user_pemilik.id_pemilik = lapangan.id_pemilik','inner');
+			$this->db->where($condition);
+			$query = $this->db->get();
+			if($query->num_rows() > 0){
+				return $query->result();
+			}else{
+				return false;
+			}
+		}
+		
 		public function read_data_lapangan_dan_pemilik_for_favorit(){
 			$this->db->select('*');
 			$this->db->from('lapangan');

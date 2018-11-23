@@ -35,6 +35,23 @@ class Welcome extends CI_Controller {
 		$this->load->view('daftarpemilik');
 	}
 	
+	public function cari_tipe_lapangan()
+	{
+		$tipe = $this->input->post('tipe_pencarian');
+		if($tipe == 'Lapangan Matras'){
+			$data = array(
+				'data_lapangan' => $this->Main_Model->read_data_lapangan_matras($tipe)
+			);
+			$this->load->view('carilapangan',$data);
+		}
+		else if($tipe == 'Lapangan Rumput'){
+			$data = array(
+				'data_lapangan' => $this->Main_Model->read_data_lapangan_rumput($tipe)
+			);
+			$this->load->view('carilapangan',$data);
+		}
+	}
+	
 	public function register_penyewa()/*Fungsi input data user penyewa baru*/
 	{
 		$nama = $this->input->post('nama');

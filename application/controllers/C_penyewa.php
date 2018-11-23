@@ -35,6 +35,23 @@ class C_penyewa extends CI_Controller {
 		$this->load->view('penyewa/konfirmasi_penyewaan',$data);
 	}
 	
+	public function cari_tipe_lapangan_penyewa()
+	{
+		$tipe = $this->input->post('tipe_pencarian');
+		if($tipe == 'Lapangan Matras'){
+			$data = array(
+				'data_lapangan' => $this->Main_Model->read_data_lapangan_matras($tipe)
+			);
+			$this->load->view('penyewa/carilapangan_penyewaan',$data);
+		}
+		else if($tipe == 'Lapangan Rumput'){
+			$data = array(
+				'data_lapangan' => $this->Main_Model->read_data_lapangan_rumput($tipe)
+			);
+			$this->load->view('penyewa/carilapangan_penyewaan',$data);
+		}
+	}
+	
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('');
