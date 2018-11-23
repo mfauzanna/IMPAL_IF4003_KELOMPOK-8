@@ -53,10 +53,10 @@ class Welcome extends CI_Controller {
 		$result = $this->Regis_Model->insert_penyewa($data);
 		if($result == true){
 			echo '<script>alert("Pendaftaran Berhasil");</script>';
-			$this->load->view('homepage');
+			$this->Home();
 		}else{
 			echo '<script>alert("Pendaftaran Gagal, Email Sudah Terdaftar");</script>';
-			$this->load->view('homepage');
+			$this->Home();
 		}
 	}
 	
@@ -81,10 +81,10 @@ class Welcome extends CI_Controller {
 		$result = $this->Regis_Model->insert_pemilik($data);
 		if($result == true){
 			echo '<script>alert("Pendaftaran Berhasil");</script>';
-			$this->load->view('homepage');
+			$this->Home();
 		}else{
 			echo '<script>alert("Pendaftaran Gagal, Email Sudah Terdaftar");</script>';
-			$this->load->view('homepage');
+			$this->Home();
 		}
 	}
 	
@@ -137,7 +137,7 @@ class Welcome extends CI_Controller {
 		}
 		else{
 			echo '<script>alert("Email atau Password Salah");</script>';
-			$this->load->view('homepage');
+			$this->Home();
 		}
     }
 	
@@ -154,5 +154,9 @@ class Welcome extends CI_Controller {
 			echo '<script>alert("Kode Booking Tidak Ada Atau Salah");</script>';
 			$this->CekBooking();
 		}
+	}
+	
+	public function cari_lapangan(){
+		
 	}
 }

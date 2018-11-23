@@ -105,39 +105,16 @@
 				<div class="centered">
 					<p style="font-size : 20px">Cari Lapangan Futsal?</p>
 					<p style="font-size : 40px; font-weight : bold;">Cek di <span style="color : #49874B;">#</span>Futsal aja.</p>
+					<form method="post" action="<?php?>">
 					<input class="ip ip4" value="Bandung" readonly>
-					<input placeholder="Date" class="textbox-n ip ip2" type="text" onfocus="(this.type='date')"  id="date">
-					<select class="ip ip2">
-						<option disabled selected>Jam Booking</option>
-						<option value="">9:00</option>
-						<option value="">10:00</option>
-						<option value="">11:00</option>
-						<option value="">12:00</option>
-						<option value="">13:00</option>
-						<option value="">14:00</option>
-						<option value="">15:00</option>
-						<option value="">16:00</option>
-						<option value="">17:00</option>
-						<option value="">18:00</option>
-						<option value="">19:00</option>
-						<option value="">20:00</option>
-						<option value="">21:00</option>
-						<option value="">22:00</option>
-					</select>
-					<select class="ip ip2">
-						<option disabled selected>Durasi Booking</option>
-						<option value="">1 Jam</option>
-						<option value="">2 Jam</option>
-						<option value="">3 Jam</option>
-					</select>
-					<select class="ip ip2">
+					<select class="ip ip2" name="tipe_pencarian">
 						<option disabled selected>Tipe Lapangan</option>
 						<option value="">Lapangan Rumput Sintetis</option>
 						<option value="">Lapangan Vinyl</option>
 					</select>
 					
 					<input type="submit" value="Cari Sekarang" class="ip ip3">
-					
+					</form>
 				</div>
 			</div>
 			<!-- End Form Cari Lapangan-->
