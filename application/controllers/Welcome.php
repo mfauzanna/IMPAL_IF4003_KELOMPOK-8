@@ -173,7 +173,7 @@ class Welcome extends CI_Controller {
 	public function testLogin(){
 		echo "Unit Testing PHP";
 		$test = $this->cek_login();
-		$expected_result = TRUE;
+		$expected_result = FALSE;
 		$test_name = "Login Testing";
 		echo $this->unit->run($test,$expected_result,$test_name);
 	}
@@ -181,7 +181,7 @@ class Welcome extends CI_Controller {
 	public function testDaftar_penyewa(){
 		echo "Unit Testing PHP";
 		$test = $this->register_penyewa();
-		$expected_result = TRUE;
+		$expected_result = FALSE;
 		$test_name = "Daftar Penyewa Testing";
 		echo $this->unit->run($test,$expected_result,$test_name);
 	}
@@ -189,7 +189,7 @@ class Welcome extends CI_Controller {
 	public function testDaftar_pemilik(){
 		echo "Unit Testing PHP";
 		$test = $this->register_pemilik();
-		$expected_result = TRUE;
+		$expected_result = FALSE;
 		$test_name = "Daftar Pemilik Testing";
 		echo $this->unit->run($test,$expected_result,$test_name);
 	}
@@ -197,7 +197,7 @@ class Welcome extends CI_Controller {
 	public function testCari_lapangan(){
 		echo "Unit Testing PHP";
 		$test = $this->cari_tipe_lapangan();
-		$expected_result = TRUE;
+		$expected_result = FALSE;
 		$test_name = "Cari Lapangan Testing";
 		echo $this->unit->run($test,$expected_result,$test_name);
 	}
