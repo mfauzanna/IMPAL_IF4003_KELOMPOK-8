@@ -164,7 +164,6 @@
 			$this->db->where('id_lapangan',$data['id_lapangan']);
 			$this->db->update('lapangan',$data);
 			return true;
-			return true;
 		}
 		
 		public function up_penyewa($data){

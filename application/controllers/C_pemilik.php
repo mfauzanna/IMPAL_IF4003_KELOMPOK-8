@@ -7,6 +7,15 @@ class C_pemilik extends CI_Controller {
 		parent::__construct();
 			$this->load->helper('url');
 			$this->load->model('Main_Model');
+			$this->load->library('unit_test');
+	}
+	
+	public function input_lapanganTesting(){
+		echo "Unit Testing PHP";
+		$test = $this->insert_lapangan();
+		$expected_result = TRUE;
+		$test_name = "Pemilik Input Lapangan Testing";
+		echo $this->unit->run($test,$expected_result,$test_name);
 	}
 	
 	public function logout()

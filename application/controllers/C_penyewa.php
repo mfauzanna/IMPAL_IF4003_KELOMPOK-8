@@ -7,6 +7,15 @@ class C_penyewa extends CI_Controller {
 		parent::__construct();
 			$this->load->helper('url');
 			$this->load->model('Main_Model');
+			$this->load->library('unit_test');
+	}
+	
+	public function pesan_lapanganTesting(){
+		echo "Unit Testing PHP";
+		$test = $this->pemesanan();
+		$expected_result = TRUE;
+		$test_name = "Penyewaan Lapangan Testing";
+		echo $this->unit->run($test,$expected_result,$test_name);
 	}
 	
 	public function home_penyewa(){
@@ -61,7 +70,6 @@ class C_penyewa extends CI_Controller {
 		$status = $this->input->post('status');
 		if($status == 'Sudah Menyewa'){
 			echo '<script>alert("Anda Telah Menyewa Lapangan, Mohon Lakukan Pembayaran Terlebih Dahulu Sebelum Menyewa Lapangan Lain");</script>';
-			$this->home_penyewa();
 		}else{
 			$id_lapangan = $this->input->post('id_lapangan');
 			$id_penyewa = $this->input->post('id_penyewa');
@@ -105,8 +113,8 @@ class C_penyewa extends CI_Controller {
 				echo '<script>alert("Pemesanan Lapangan Gagal");</script>';
 			}
 			$this->up_session_penyewa($email);
-			$this->home_penyewa();
 		}
+		$this->home_penyewa();
 	}
 	
 	public function up_session_penyewa($data){

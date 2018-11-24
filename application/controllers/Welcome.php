@@ -8,6 +8,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('Regis_Model');
 		$this->load->model('Main_Model');
 		$this->load->helper('url');
+		$this->load->library('unit_test');
 	}
 	public function Home()/*Fungsi view page Home*/
 	{
@@ -42,14 +43,13 @@ class Welcome extends CI_Controller {
 			$data = array(
 				'data_lapangan' => $this->Main_Model->read_data_lapangan_matras($tipe)
 			);
-			$this->load->view('carilapangan',$data);
 		}
 		else if($tipe == 'Lapangan Rumput'){
 			$data = array(
 				'data_lapangan' => $this->Main_Model->read_data_lapangan_rumput($tipe)
 			);
-			$this->load->view('carilapangan',$data);
 		}
+		$this->load->view('carilapangan',$data);
 	}
 	
 	public function register_penyewa()/*Fungsi input data user penyewa baru*/
@@ -70,11 +70,10 @@ class Welcome extends CI_Controller {
 		$result = $this->Regis_Model->insert_penyewa($data);
 		if($result == true){
 			echo '<script>alert("Pendaftaran Berhasil");</script>';
-			$this->Home();
 		}else{
 			echo '<script>alert("Pendaftaran Gagal, Email Sudah Terdaftar");</script>';
-			$this->Home();
 		}
+		$this->Home();
 	}
 	
 	public function register_pemilik()/*Fungsi input data user pemilik baru*/
@@ -89,20 +88,18 @@ class Welcome extends CI_Controller {
 		$data = array(
 			'nama_pemilik' => $nama,
 			'email_pemilik' => $email,
-			'kelamin_penyewa' => $kelamin,
+			'kelamin_pemilik' => $kelamin,
 			'password_pemilik' => $password,
 			'alamat_pemilik' => $alamat,
-			'nohp_pemilik' => $nohp,
-			'status_menyewa' => $status
+			'nohp_pemilik' => $nohp
 		);
 		$result = $this->Regis_Model->insert_pemilik($data);
 		if($result == true){
 			echo '<script>alert("Pendaftaran Berhasil");</script>';
-			$this->Home();
 		}else{
 			echo '<script>alert("Pendaftaran Gagal, Email Sudah Terdaftar");</script>';
-			$this->Home();
 		}
+		$this->Home();
 	}
 	
 	public function cek_login()/*Fungsi login sesuai user yang diinput(penyewa/pemilik)*/
@@ -173,7 +170,36 @@ class Welcome extends CI_Controller {
 		}
 	}
 	
-	public function cari_lapangan(){
-		
+	public function testLogin(){
+		echo "Unit Testing PHP";
+		$test = $this->cek_login();
+		$expected_result = TRUE;
+		$test_name = "Login Testing";
+		echo $this->unit->run($test,$expected_result,$test_name);
 	}
+	
+	public function testDaftar_penyewa(){
+		echo "Unit Testing PHP";
+		$test = $this->register_penyewa();
+		$expected_result = TRUE;
+		$test_name = "Daftar Penyewa Testing";
+		echo $this->unit->run($test,$expected_result,$test_name);
+	}
+	
+	public function testDaftar_pemilik(){
+		echo "Unit Testing PHP";
+		$test = $this->register_pemilik();
+		$expected_result = TRUE;
+		$test_name = "Daftar Pemilik Testing";
+		echo $this->unit->run($test,$expected_result,$test_name);
+	}
+
+	public function testCari_lapangan(){
+		echo "Unit Testing PHP";
+		$test = $this->cari_tipe_lapangan();
+		$expected_result = TRUE;
+		$test_name = "Cari Lapangan Testing";
+		echo $this->unit->run($test,$expected_result,$test_name);
+	}
+	
 }
