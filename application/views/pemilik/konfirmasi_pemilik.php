@@ -42,7 +42,7 @@
 						<?php if($data_pemesanan == FALSE){?>
 					<tr>
 							<td colspan="10" align="center">
-							- Anda Belum Pernah Memesan Lapangan -
+							- Belum Ada Penyewa Yang Menyewa Lapangan Anda -
 							</td>
 						<?php }else { $i=0; foreach($data_pemesanan as $dt_pem){ $i++;?>
 							<td><?php echo $i; ?></td>
@@ -81,7 +81,7 @@
 							<td>
 								<div class="row container">
 									<div class="col-6">
-										<input type="button" class="btn btn-success disabled" value="Konfirmasi" data-toggle="modal" data-target=".modalKonfirmasi<?php echo $dt_pem->id_pemesanan;?>">
+										<input type="button" class="btn btn-danger disabled" value="Pending" data-toggle="modal" data-target=".modalKonfirmasi<?php echo $dt_pem->id_pemesanan;?>">
 									</div>
 								</div>
 							</td>

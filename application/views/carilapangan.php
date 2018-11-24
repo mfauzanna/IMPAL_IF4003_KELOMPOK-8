@@ -94,7 +94,7 @@
 			}
 			.list_lp{
 				padding-left : 100px;
-				margin-top : 10%;
+				margin-top : 2%;
 			}
 		</style>
 	</head>
@@ -125,6 +125,7 @@
 		<!-- End Form Cari Lapangan-->
 		
 		<!-- List Lapangan Hasil Pencarian-->
+		<h4 align="center" style="margin-top : 2%;">"Hasil Pencarian"</h4>
 		<div class="row list_lp">
 			<?php foreach($data_lapangan as $dt){?> 
 				<div class="col-3 rw1" style="margin : 2% 7% 2% 0;">
